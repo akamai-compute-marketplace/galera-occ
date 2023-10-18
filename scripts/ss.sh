@@ -27,8 +27,8 @@ function cleanup {
   if [ "$?" != "0" ] || [ "$SUCCESS" == "true" ]; then
     #deactivate
     cd ${HOME}
-    if [ -d "/tmp/mariadb-galera" ]; then
-      rm -rf /tmp/mariadb-galera
+    if [ -d "/tmp/galera-occ" ]; then
+      rm -rf /tmp/galera-occ
     fi
     if [ -d "/usr/local/bin/run" ]; then
       rm /usr/local/bin/run
@@ -91,8 +91,8 @@ function setup {
   rename_provisioner
   configure_privateip  
   # clone repo and set up ansible environment
-  git clone ${GIT_REPO} /tmp/mariadb-galera
-  cd /tmp/mariadb-galera/
+  git clone ${GIT_REPO} /tmp/galera-occ
+  cd /tmp/galera-occ/
   pip3 install virtualenv
   python3 -m virtualenv env
   source env/bin/activate
