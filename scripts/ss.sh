@@ -74,6 +74,7 @@ function rename_provisioner {
       https://api.linode.com/v4/linode/instances/${LINODE_ID}
 }
 function setup {
+  export DEBIAN_FRONTEND=non-interactive
   # install dependancies
   apt-get update && apt-get upgrade -y
   apt-get install -y jq git python3 python3-pip python3-dev build-essential firewalld
